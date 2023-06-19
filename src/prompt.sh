@@ -12,7 +12,7 @@ get_stage_prompt() {
     1) echo "Lua chon build $opt" && STAGE="development" && break ;;
     2) echo "Lua chon build $opt" && STAGE="staging" && break ;;
     3) echo "Lua chon build $opt" && STAGE="production" && break ;;
-    4) echo "Nâng version" && get_version_option && break ;;
+    4) echo "Nâng version" && get_bump_version_option && break ;;
     $((${#options[@]} + 1)))
       echo "Goodbye!"
       exit 0
