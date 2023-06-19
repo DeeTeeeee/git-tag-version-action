@@ -11,7 +11,7 @@ get_stage_prompt() {
     1) echo "Lua chon build $opt" && STAGE="development" && break ;;
     2) echo "Lua chon build $opt" && STAGE="staging" && break ;;
     3) echo "Lua chon build $opt" && STAGE="production" && break ;;
-    4) echo "Nâng version" && get_bump_version_option && break ;;
+    4) echo "Nâng version" && get_bump_version_option $1 && break ;;
     $((${#options[@]} + 1)))
       echo "Goodbye!"
       exit 0
@@ -25,7 +25,7 @@ get_stage_prompt() {
 }
 
 get_bump_version_option() {
-  PREFIX='merchant/'
+  PREFIX=''
   if [[ "$1" ]]; then
     PREFIX="$1/"
   fi
