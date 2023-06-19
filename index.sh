@@ -1,3 +1,3 @@
-source ./src/prompt.sh
+source /src/prompt.sh
 
 get_stage_prompt
