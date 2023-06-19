@@ -1,8 +1,4 @@
 get_stage_prompt() {
-  PREFIX=''
-  if [[ "$1" ]]; then
-    PREFIX="$1/"
-  fi
   title="Chon moi truong build:"
   prompt="Lua chon:"
   options=("Development" "Staging" "Production" "Bump Version")
@@ -15,7 +11,7 @@ get_stage_prompt() {
     1) echo "Lua chon build $opt" && STAGE="development" && break ;;
     2) echo "Lua chon build $opt" && STAGE="staging" && break ;;
     3) echo "Lua chon build $opt" && STAGE="production" && break ;;
-    4) echo "Nâng version" && get_bump_version_option $PREFIX && break ;;
+    4) echo "Nâng version" && get_bump_version_option $1 && break ;;
     $((${#options[@]} + 1)))
       echo "Goodbye!"
       exit 0
@@ -29,7 +25,11 @@ get_stage_prompt() {
 }
 
 get_bump_version_option() {
-  PRO_TAG=$(git tag --sort=-version:refname -l "${1}production/*" | head -n 1)
+  PREFIX=''
+  if [[ "$1" ]]; then
+    PREFIX="$1/"
+  fi
+  PRO_TAG=$(git tag --sort=-version:refname -l "${PREFIX}production/*" | head -n 1)
   title="Version của app hiện tại: $PRO_TAG"
   options=("Major Version" "Minor Version" "Patche")
   NEW_VERSION=''

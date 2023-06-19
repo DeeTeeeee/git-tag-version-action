@@ -144,7 +144,7 @@ split_version() {
     echo ${ENVIRONMENT}
     ;;
   increment_major)
-    echo "${VERSION_NAME_PATH}/${ENVIRONMENT}/v$((MAJOR+1)).$MINOR.$PATCHE+$BUILD_NUMBER"
+    echo "${VERSION_NAME_PATH}/${ENVIRONMENT}/v$((MAJOR+1)).0.0+$BUILD_NUMBER"
     ;;
   increment_minor)
     echo "${VERSION_NAME_PATH}/${ENVIRONMENT}/v$MAJOR.$((MINOR+1)).0+$BUILD_NUMBER"
