@@ -1,4 +1,3 @@
-source ./version.sh && source ./tag.sh
 get_stage_prompt() {
   title="Chon moi truong build:"
   prompt="Lua chon:"
